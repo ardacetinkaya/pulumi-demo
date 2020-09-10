@@ -1,6 +1,6 @@
 # pulumi-demo
 
-This is a simple Pulumi demostration for creating Azure resources. 
+This is a simple Pulumi demonstration for creating Azure resources. 
 
 
 - Storage Account
