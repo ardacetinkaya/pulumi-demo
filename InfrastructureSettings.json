@@ -1,0 +1,14 @@
+{
+    "Region": "West Europe",
+    "AppService": {
+      "Tier": "Free",
+      "Size": "F1"
+    },
+    "Storage":{
+        "AccountReplicationType": "LRS",
+        "AccounTier": "Standard"
+    },
+    "KeyVault":{
+        "SkuName":"standard"
+    }
+}
