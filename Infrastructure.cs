@@ -175,7 +175,6 @@ public class Infrastructure : Stack
             Value = sqlAdminPassword.Result
         });
 
-
         var sqlServer = new SQL.SqlServer("product-sql-server-01", new SQL.SqlServerArgs
         {
             Name = "product-sql-server-01",
@@ -195,16 +194,21 @@ public class Infrastructure : Stack
             SkuName = "Basic"
         });
 
+        // How to get Outbound IPs as list to have input for SQL Firewall Rule
+        // var IPs = apiAppService.PossibleOutboundIpAddresses.Apply(ip => ip.Split(';', System.StringSplitOptions.RemoveEmptyEntries));
 
-        this.ConnectionString = storageAccount.PrimaryConnectionString;
-        this.WebSiteAddress = webAppService.DefaultSiteHostname;
+        // for (int i = 0; i < IPs.Length; i++)
+        // {
+        //     var firewallRule = new SQL.FirewallRule($"sql-firewall-{i.ToString("D2")}", new SQL.FirewallRuleArgs
+        //     {
+        //         Name = $"sql-firewall-{i.ToString("D2")}",
+        //         ResourceGroupName = resourceGroup.Name,
+        //         ServerName = resourceGroup.Name,
+        //         StartIpAddress = IPs[i],
+        //         EndIpAddress = IPs[i],
+        //     });
+        // }
 
     }
 
-
-    [Output]
-    public Output<string> WebSiteAddress { get; set; }
-
-    [Output]
-    public Output<string> ConnectionString { get; set; }
 }
